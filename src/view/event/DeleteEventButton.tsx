@@ -9,7 +9,7 @@ import { Trash2 } from 'lucide-react'
 
 type Props = {
   className?: string
-  eventId: string
+  eventId: number
   username: string
   memoryId: string
 }

@@ -5,6 +5,7 @@ import api from '@/src/lib/api'
 import CreateMemoryForm from '@/src/view/memory/MemoryForm'
 import MemoryCoverCard from '@/src/view/memory/MemoryCoverCard'
 import { BookPlus, TriangleAlert } from 'lucide-react'
+import MemoryCard from '@/src/view/memory/MemoryCard'
 
 type Props = {
   params: Promise<{
@@ -25,8 +26,8 @@ export default async function Page(props: Props) {
   const memories = await api(username).memories.list()
 
   return (
-    <div className='flex flex-col h-full container mx-auto py-12'>
-      <div className='flex flex-row justify-between items-center'>
+    <div className='flex flex-col h-full container mx-auto py-12 px-2 xl:px-0'>
+      <div className='flex flex-col md:flex-row gap-4 justify-between items-center'>
         <div className=''>
           <h1 className='text-4xl font-bold'>{username}'s Memory Lane</h1>
           <p>A place to store your memories, and share them with the world.</p>
@@ -34,7 +35,7 @@ export default async function Page(props: Props) {
 
         <Dialog
           trigger={
-            <Button size='sm'>
+            <Button size='sm' className='w-full md:w-auto'>
               <BookPlus />
               New memory
             </Button>
@@ -47,7 +48,7 @@ export default async function Page(props: Props) {
         </Dialog>
       </div>
 
-      {memories?.memories.length === 0 ? (
+      {!memories || memories?.memories.length === 0 ? (
         <Empty
           className='h-full mt-32'
           title='No memories yet'
@@ -55,14 +56,30 @@ export default async function Page(props: Props) {
         />
       ) : null}
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8'>
-        {memories?.memories.map((memory) => (
-          <MemoryCoverCard
+      {/* {memories?.memories[0] ? (
+        <MemoryCoverCard
+          className='mt-8'
+          imageClassName='h-96'
+          key={memories.memories[0].id}
+          username={username}
+          id={memories.memories[0].id}
+          name={memories.memories[0].name}
+          description={memories.memories[0].description}
+          slug={memories.memories[0].slug}
+        />
+      ) : null} */}
+
+      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-8'>
+        {memories?.memories.slice(1).map((memory) => (
+          <MemoryCard
             key={memory.id}
             username={username}
             id={memory.id}
             name={memory.name}
             description={memory.description}
+            slug={memory.slug}
+            eventCount={memory.eventCount}
+            images={memory.images}
           />
         ))}
       </div>

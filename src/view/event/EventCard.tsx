@@ -9,7 +9,7 @@ import { format } from 'date-fns'
 
 type Props = {
   images: Image[]
-  id: string
+  id: number
   title: string
   description: string
   timestamp: string

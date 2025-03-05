@@ -1,17 +1,64 @@
 const express = require('express')
 const db = require('../db')
-const { generateSlug } = require('../utils')
+const { generateSlug, wrapEndpointForPath } = require('../utils')
 const router = express.Router()
 
 router.get('/', (req, res) => {
   const { username } = req.user
 
-  const query = 'SELECT * FROM memories WHERE username = ?'
+  const query = `
+    SELECT 
+      m.id AS memory_id, 
+      m.name AS memory_name, 
+      m.description AS memory_description, 
+      m.timestamp AS memory_timestamp, 
+      m.username AS memory_username, 
+      m.slug AS memory_slug,
+      COUNT(DISTINCT e.id) AS event_count,
+      GROUP_CONCAT(
+          DISTINCT JSON_OBJECT(
+              'id', i.id, 
+              'name', i.name, 
+              'size', i.size, 
+              'type', i.type, 
+              'path', i.path,
+              'eventId', i.event_id
+          )
+      ) AS images
+    FROM memories m
+    LEFT JOIN events e ON e.memory_id = m.id
+    LEFT JOIN images i ON i.event_id = e.id
+    WHERE m.username = ?
+    GROUP BY m.id;
+  `
+
   db.all(query, [username], (err, rows) => {
     if (err) {
-      return res.status(500).json({ error: err.message })
+      res.status(500).json({ error: err.message })
+      return
     }
-    res.json({ memories: rows })
+
+    const memories = rows.map((row) => {
+      const images = row.images ? JSON.parse(`[${row.images}]`) : []
+
+      return {
+        id: row.memory_id,
+        name: row.memory_name,
+        description: row.memory_description,
+        timestamp: row.memory_timestamp,
+        username: row.memory_username,
+        slug: row.memory_slug,
+        eventCount: row.event_count,
+        images: images[0].id
+          ? images.map((e) => ({
+              ...e,
+              url: wrapEndpointForPath(e.path),
+            }))
+          : [],
+      }
+    })
+
+    res.status(200).json({ memories })
   })
 })
 

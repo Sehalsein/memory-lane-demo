@@ -4,6 +4,7 @@ import { Label } from './ui/label'
 
 type Props = {
   url: string
+  onClose?: () => void
 }
 
 export default function ShareLink(props: Props) {
@@ -15,7 +16,7 @@ export default function ShareLink(props: Props) {
         </Label>
         <Input id='link' defaultValue={props.url} readOnly className='h-9' />
       </div>
-      <CopyToClipboard content={props.url} />
+      <CopyToClipboard content={props.url} onClick={props.onClose} />
     </div>
   )
 }

@@ -5,10 +5,12 @@ export type Memory = {
   timestamp: string
   username: string
   slug: string
+  eventCount?: number
+  images?: Image[]
 }
 
 export type Event = {
-  id: string
+  id: number
   name: string
   description: string
   timestamp: string

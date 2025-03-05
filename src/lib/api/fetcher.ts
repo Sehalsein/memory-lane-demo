@@ -3,7 +3,7 @@ const endpoint = process.env.NEXT_PUBLIC_API_ENDPOINT ?? 'http://localhost:4001'
 const fetcher = async <T = any>(
   path: string,
   options: RequestInit = {}
-): Promise<T> => {
+): Promise<T | null> => {
   try {
     const response = await fetch(`${endpoint}${path}`, {
       ...options,
@@ -22,7 +22,9 @@ const fetcher = async <T = any>(
 
     return await response.json()
   } catch (error) {
-    throw error
+    // Improve this error handling
+    // For this demo just adding null
+    return null
   }
 }
 

@@ -11,6 +11,7 @@ import EventForm from '@/src/view/event/EventForm'
 import MemoryForm from '@/src/view/memory/MemoryForm'
 import DeleteMemoryButton from '@/src/view/memory/DeleteMemoryButton'
 import ShareLink from '@/src/components/ShareLink'
+import ShareButton from '@/src/view/memory/ShareButton'
 
 type Props = {
   params: Promise<{
@@ -26,12 +27,23 @@ export default async function Page(props: Props) {
     api(username).events.list(memoryId),
   ])
 
+  if (!memory) {
+    return (
+      <div className='flex flex-col h-full container mx-auto py-12'>
+        <Empty
+          title='No module found'
+          description={'Please return to home page and create a module'}
+        />
+      </div>
+    )
+  }
+
   return (
     <div className='flex flex-col h-full container mx-auto py-12'>
       <div className='flex flex-row justify-between items-center group'>
         <div>
           <div className='flex items-center gap-2'>
-            <h1 className='text-4xl font-bold'>{memory.memory.name}</h1>
+            <h1 className='text-4xl font-bold'>{memory?.memory.name}</h1>
             <Dialog
               title='Edit memory'
               description='Update the title and description of this memory lane'
@@ -62,18 +74,7 @@ export default async function Page(props: Props) {
 
         <div className='flex items-center gap-2'>
           <DeleteMemoryButton memoryId={memoryId} username={username} />
-          <Dialog
-            trigger={
-              <Button variant='outline' size='sm'>
-                <Share2 />
-                Share
-              </Button>
-            }
-            title='Share memory'
-            description='Share this memory lane with others by copying the link below. Anyone with the link can view this memory lane.'
-          >
-            <ShareLink url={`http://localhost:3000/${memory.memory.slug}`} />
-          </Dialog>
+          <ShareButton slug={memory.memory.slug} />
 
           <Dialog
             trigger={
@@ -95,14 +96,14 @@ export default async function Page(props: Props) {
         </div>
       </div>
       <div className='grid grid-cols-1 gap-4 mt-8'>
-        {events.events.length === 0 && (
+        {(!events || events.events.length) === 0 && (
           <Empty
             className='h-full mx-auto'
             title='No events yet'
             description='Add a new event to this memory lane.'
           />
         )}
-        {events.events.map((event) => (
+        {events?.events.map((event) => (
           <EventCard
             key={event.id}
             id={event.id}

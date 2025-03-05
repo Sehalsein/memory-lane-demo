@@ -56,6 +56,11 @@ export default function MemoryForm(props: Props) {
 
     return fn
       .then((res) => {
+        if (!res) {
+          toast.error('Failed to create memory')
+          return
+        }
+
         toast.success(
           `Successfully ${props.memoryId ? 'updated' : 'created'} memory`
         )

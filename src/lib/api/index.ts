@@ -61,10 +61,10 @@ const createAPI = (username: string) => {
       create: (data: CreateEvent) => {
         return fetcher.post<Event>('/events', data, defaultOptions)
       },
-      update: (id: string, data: Partial<Omit<CreateEvent, 'memoryId'>>) => {
+      update: (id: number, data: Partial<Omit<CreateEvent, 'memoryId'>>) => {
         return fetcher.put<Event>(`/events/${id}`, data, defaultOptions)
       },
-      delete: (id: string) => {
+      delete: (id: number) => {
         return fetcher.delete<Event>(`/events/${id}`, defaultOptions)
       },
     },
@@ -81,6 +81,16 @@ const createAPI = (username: string) => {
           message: string
           files: Omit<Image, 'eventId'>[]
         }>('/files/upload', formData, defaultOptions)
+      },
+    },
+
+    lanes: {
+      get: (slug: string) => {
+        return fetcher.get<
+          Omit<Memory, 'eventCount' | 'images'> & {
+            events: Event[]
+          }
+        >(`/lanes/${slug}`, defaultOptions)
       },
     },
   }

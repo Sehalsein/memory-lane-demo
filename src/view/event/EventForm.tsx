@@ -67,7 +67,7 @@ type Props = {
   username: string
   memoryId: string
   className?: string
-  eventId?: string
+  eventId?: number
   onClose?: () => void
   defaultValues?: z.infer<typeof formSchema>
 }

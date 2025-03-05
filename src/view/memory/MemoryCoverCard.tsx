@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader } from '@/src/components/ui/card'
 import { cn } from '@/src/lib/utils'
 import { Share2 } from 'lucide-react'
 import Link from 'next/link'
+import ShareButton from './ShareButton'
 
 type Props = {
   className?: string
@@ -10,6 +11,8 @@ type Props = {
   id: string
   name: string
   description: string
+  slug: string
+  imageClassName?: string
 }
 
 export default function MemoryCoverCard(props: Props) {
@@ -22,7 +25,9 @@ export default function MemoryCoverCard(props: Props) {
     >
       <Link href={`/~/${props.username}/${props.id}`}>
         <CardHeader className='px-0'>
-          <div className='h-96 w-full bg-gray-200 p-0' />
+          <div
+            className={cn('h-96 w-full bg-gray-200 p-0', props.imageClassName)}
+          />
         </CardHeader>
       </Link>
       <CardContent>
@@ -32,10 +37,7 @@ export default function MemoryCoverCard(props: Props) {
             <p className='text-muted-foreground'>{props.description}</p>
           </div>
           <div className='flex items-center gap-2 text-sm text-muted-foreground'>
-            <Button variant='outline' size='sm'>
-              <Share2 />
-              Share
-            </Button>
+            <ShareButton slug={props.slug} />
           </div>
         </div>
       </CardContent>
