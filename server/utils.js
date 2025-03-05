@@ -6,6 +6,9 @@ const generateSlug = () => {
 }
 
 const wrapEndpointForPath = (path) => {
+  if (path.startsWith('http')) {
+    return path
+  }
   return `http://localhost:${config.PORT}/static${path}`
 }
 

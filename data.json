@@ -1,0 +1,125 @@
+[
+  {
+    "name": "Trip to Paris",
+    "timestamp": "2018-01-01T00:00:00.000Z",
+    "description": "A trip to Paris with my friends",
+    "username": "johndoe",
+    "events": [
+      {
+        "name": "Eiffel Tower",
+        "timestamp": "2018-01-01T12:00:00.000Z",
+        "description": "Visited the Eiffel Tower",
+        "location": "Paris, France",
+        "images": [
+          {
+            "name": "file1.jpg",
+            "size": 1024,
+            "url": "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          },
+          {
+            "name": "file2.jpg",
+            "size": 2048,
+            "url": "https://images.unsplash.com/photo-1609971757431-439cf7b4141b?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          },
+          {
+            "name": "file3.jpg",
+            "size": 4096,
+            "url": "https://images.unsplash.com/photo-1435164205788-305635a36ec2?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          },
+          {
+            "name": "file4.jpg",
+            "size": 8192,
+            "url": "https://images.unsplash.com/photo-1531264993164-04a70aa46453?q=80&w=1863&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          },
+          {
+            "name": "file5.jpg",
+            "size": 16384,
+            "url": "https://plus.unsplash.com/premium_photo-1694475226507-568fd86cadfe?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          },
+          {
+            "name": "file6.jpg",
+            "size": 32768,
+            "url": "https://images.unsplash.com/photo-1566054427914-200674c7aa5b?q=80&w=2973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          }
+        ]
+      },
+      {
+        "name": "Louvre Museum",
+        "timestamp": "2018-01-02T12:00:00.000Z",
+        "description": "Visited the Louvre Museum",
+        "location": "Paris, France",
+        "images": [
+          {
+            "name": "file7.jpg",
+            "size": 65536,
+            "url": "https://images.unsplash.com/photo-1500039436846-25ae2f11882e?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          },
+          {
+            "name": "file8.jpg",
+            "size": 131072,
+            "url": "https://images.unsplash.com/photo-1560425946-7d5830202765?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          },
+          {
+            "name": "file9.jpg",
+            "size": 262144,
+            "url": "https://plus.unsplash.com/premium_photo-1706388658576-77fbaff13ffe?q=80&w=3119&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          },
+          {
+            "name": "file10.jpg",
+            "size": 524288,
+            "url": "https://images.unsplash.com/photo-1564557823522-1319c627a1e3?q=80&w=2875&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Weekend camping",
+    "timestamp": "2018-02-01T00:00:00.000Z",
+    "description": "A weekend camping with my friends, in the forest near the lake",
+    "username": "johndoe",
+    "events": [
+      {
+        "name": "Arrival",
+        "timestamp": "2018-02-01T12:00:00.000Z",
+        "description": "Arrived at the camping site",
+        "location": "Forest near the lake",
+        "images": [
+          {
+            "name": "file11.jpg",
+            "size": 1048576,
+            "url": "https://images.unsplash.com/photo-1468818438311-4bab781ab9b8?q=80&w=2738&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          },
+          {
+            "name": "file12.jpg",
+            "size": 2097152,
+            "url": "https://plus.unsplash.com/premium_photo-1669638749054-da4b61430282?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          },
+          {
+            "name": "file13.jpg",
+            "size": 4194304,
+            "url": "https://plus.unsplash.com/premium_photo-1668852917781-aa894ed23ac2?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          },
+          {
+            "name": "file14.jpg",
+            "size": 8388608,
+            "url": "https://images.unsplash.com/photo-1574260031597-bcd9eb192b4f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "type": "image/jpeg"
+          }
+        ]
+      }
+    ]
+  }
+]

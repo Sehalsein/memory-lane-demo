@@ -70,7 +70,7 @@ export default async function Page(props: Props) {
       ) : null} */}
 
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-8'>
-        {memories?.memories.slice(1).map((memory) => (
+        {memories?.memories.map((memory) => (
           <MemoryCard
             key={memory.id}
             username={username}

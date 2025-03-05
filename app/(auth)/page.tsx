@@ -6,10 +6,12 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <div>
-      <h1>Memory Lane</h1>
-      <p>A place to store your memories, and share them with the world.</p>
-      <LoginForm />
+    <div className='flex flex-col items-center justify-center h-screen'>
+      <h1 className='text-4xl font-bold'>Memory Lane</h1>
+      <p className='text-muted-foreground'>
+        A place to store your memories, and share them with the world.
+      </p>
+      <LoginForm className='mt-12 w-full max-w-sm mx-auto' />
     </div>
   )
 }

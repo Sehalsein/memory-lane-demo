@@ -1,8 +1,6 @@
-import { Button } from '@/src/components/ui/button'
 import Empty from '@/src/components/ui/empty'
 import api from '@/src/lib/api'
 import MemoryLane from '@/src/view/memory-lane/MemoryLane'
-import { Download } from 'lucide-react'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -29,12 +27,12 @@ export default async function Page(props: Props) {
           <h1 className='text-3xl font-bold'>{lane.name}</h1>
           <p>{lane.description}</p>
         </div>
-        <div className='flex gap-3'>
+        {/* <div className='flex gap-3'>
           <Button variant='outline'>
             <Download className='mr-2 h-4 w-4' />
             Download
           </Button>
-        </div>
+        </div> */}
       </div>
       <MemoryLane events={lane.events} />
     </>

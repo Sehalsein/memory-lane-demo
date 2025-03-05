@@ -8,7 +8,6 @@ import { Button } from '@/src/components/ui/button'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -16,6 +15,7 @@ import {
 } from '@/src/components/ui/form'
 import { Input } from '@/src/components/ui/input'
 import { useRouter } from 'next/navigation'
+import { cn } from '@/src/lib/utils'
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -23,7 +23,11 @@ const formSchema = z.object({
   }),
 })
 
-export default function LoginForm() {
+type Props = {
+  className?: string
+}
+
+export default function LoginForm(props: Props) {
   const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,7 +43,10 @@ export default function LoginForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className={cn('space-y-8', props.className)}
+      >
         <FormField
           control={form.control}
           name='username'
@@ -49,14 +56,13 @@ export default function LoginForm() {
               <FormControl>
                 <Input placeholder='Enter your username' {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type='submit'>Submit</Button>
+        <Button className='w-full' type='submit'>
+          Submit
+        </Button>
       </form>
     </Form>
   )
