@@ -1,6 +1,9 @@
+import Link from 'next/link'
 import { CopyToClipboard } from './CopyToClipboard'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
+import { ExternalLink } from 'lucide-react'
+import { buttonVariants } from './ui/button'
 
 type Props = {
   url: string
@@ -16,6 +19,13 @@ export default function ShareLink(props: Props) {
         </Label>
         <Input id='link' defaultValue={props.url} readOnly className='h-9' />
       </div>
+      <Link
+        href={props.url}
+        target='_blank'
+        className={buttonVariants({ variant: 'outline', size: 'icon' })}
+      >
+        <ExternalLink />
+      </Link>
       <CopyToClipboard content={props.url} onClick={props.onClose} />
     </div>
   )
